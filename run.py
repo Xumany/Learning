@@ -19,6 +19,10 @@ if __name__ == '__main__':
 	login_url = 'https://sso.chaoxing.com/apis/login/userLogin4Uname.do'
 	headers = {"User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16A366 ChaoXingStudy/ChaoXingStudy_3_4.3.1_ios_phone_201909191720_27 (@Kalimdor)_4233108647765227054",
 }
-	re = requests.get(login_url,headers = headers, cookies = login())
-	print(re.json()['msg']['name'])
+	try:
+		re = requests.get(login_url,headers = headers, cookies = login())
+		print(re.json()['msg']['name'])
+	except Exception:
+		print("账号信息有错误，请认真填写")
+	
 	
